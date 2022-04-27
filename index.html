@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>	</title>
+
+	<style type="text/css">
+		.nora{
+           width: 100px;
+           height: 100px;
+           background-image: url(nora.png);
+           background-size: 100% 100%;
+           left: 500px;
+           top: 100px;
+           position: absolute;
+		}
+		.nora2{
+           width: 100px;
+           height: 100px;
+           background-image: url(nora.png);
+           left: 700px;
+           top: 100px;
+           position: absolute;
+           background-size: 100% 100%;
+		}
+		.nora3{
+           width: 100px;
+           height: 100px;
+           background-image: url(nora.png);
+           left: 900px;
+           top: 100px;
+           position: absolute;
+           background-size: 100% 100%;
+		}
+        .nora4{
+           width: 100px;
+           height: 100px;
+           background-image: url(nora.png);
+           left: 500px;
+           top: 300px;
+           position: absolute;
+           background-size: 100% 100%;
+        }
+        .nora5{
+           width: 100px;
+           height: 100px;
+           background-image: url(nora.png);
+           left: 700px;
+           top: 300px;
+           position: absolute;
+           background-size: 100% 100%;
+        }
+        .nora6{
+           width: 100px;
+           height: 100px;
+           background-image: url(nora.png);
+           left: 900px;
+           top: 300px;
+           position: absolute;
+           background-size: 100% 100%;
+        }
+        .nora7{
+           width: 100px;
+           height: 100px;
+           background-image: url(nora.png);
+           left: 500px;
+           top: 500px;
+           position: absolute;
+           background-size: 100% 100%;
+        }
+        .nora8{
+           width: 100px;
+           height: 100px;
+           background-image: url(nora.png);
+           left: 700px;
+           top: 500px;
+           position: absolute;
+           background-size: 100% 100%;
+        }
+        .nora9{
+           width: 100px;
+           height: 100px;
+           background-image: url(nora.png);
+           left: 900px;
+           top: 500px;
+           position: absolute;
+           background-size: 100% 100%;
+        }
+		.first{
+
+		}
+        .score1{
+            height: 75px;
+            width: 75px;
+            text-align: center;
+            margin-top: 12px;
+            background-image: url(yacheika.png);
+            background-size: 100% 100%;
+            position: absolute;
+            
+        }
+        .startbtn{
+            height: 50px;
+            width: 100px;
+            left: 100px;
+            text-align: center;
+            position: absolute;
+        }
+        .score{
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .timer{
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .btntext{
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 15px;
+        }
+        .timer1{
+            height: 75px;
+            width: 75px;
+            text-align: center;
+            margin-top: 100px;
+            background-image: url(yacheika.png);
+            background-size: 100% 100%;
+            position: absolute;
+        }
+        .bg{
+            background-image: url(bg.png);
+            background-size: 100% 100%;
+            height: 1000px;
+        }
+        .win{
+            background-image: url(win.jpg);
+            height: 1000px;
+            width: 2000px;
+            display: none;
+            position: absolute;
+            background-size: 100% 100%;
+        }
+	</style>
+</head>
+<body class="bg">
+
+     <button class="startbtn"><h2 class="btntext">start</h2></button>
+     <div class="score1">score:<h2 class="score">0</h2></div>
+     <div class="timer1">time:<h2 class="timer">60</h2></div>
+     <div class="nora first"></div>
+     <div class="nora2"></div>
+     <div class="nora3"></div>
+
+     <div class="nora4"></div>
+     <div class="nora5"></div>
+     <div class="nora6"></div>
+
+     <div class="nora7"></div>
+     <div class="nora8"></div>
+     <div class="nora9"></div>
+
+    <div class="win"></div>
+     <script type="text/javascript">
+       let score = 0
+       let time = 10
+       let btn = document.querySelector(".startbtn");
+
+       let random = function(arg){
+        let rand = Math.random() * arg
+        let round = Math.round(rand)
+        return round
+       }
+
+       let nory = ["525px","725px","925px"]
+       let norytops = ["100px","300px","500px"]
+       let status = ["bad","good"]
+     	
+
+       let krotspam = function(){
+     	let box = document.createElement("div")
+        document.body.appendChild(box)
+        box.style.position = "absolute"
+        box.style.width = "50px"
+        box.style.height = "100px"
+        box.style.top = norytops[random(2)]
+        box.style.transition = '0.5s'
+        box.style.left = nory[random(2)]
+        box.name = status[random(1)]
+        if(box.name == 'good'){
+            box.style.backgroundImage = 'url(worm.png)'
+        } else{
+            box.style.backgroundImage = 'url(wormbad.png)'
+        }
+        let krotverh = function(){
+            if(box.style.top == '100px'){
+              box.style.top = '50px'
+            }
+            if(box.style.top == '300px'){
+              box.style.top = '250px'
+            }
+            if(box.style.top == '500px'){
+              box.style.top = '450px'
+            }
+        }
+        let krotvniz = function(){
+          if(box.style.top == '50px'){
+              box.style.top = '100px'
+          }
+          if(box.style.top == '250px'){
+              box.style.top = '300px'
+          }
+          if(box.style.top == '450px'){
+              box.style.top = '500px'
+          }
+        }
+         
+
+
+
+
+
+        let div1 = document.querySelector('.first')
+        div1.before(box)
+
+
+
+   
+        box.onclick = function(){
+            box.style.opacity = '0'
+            box.style.transition = '0.2s'
+         if(box.name == 'good'){
+            score = score + 1
+            document.querySelector('.score').innerHTML = score;
+         } else{
+            score = score - 1
+            document.querySelector('.score').innerHTML = score;
+         }
+        }
+        
+            setTimeout(krotverh,500)
+            setTimeout(krotvniz,1500)
+        
+       }
+
+       
+       btn.onclick = function(){
+         btn.style.display = 'none'
+         let timer = function(){
+          time = time - 1
+          document.querySelector('.timer').innerHTML = time;
+          if (time == 0){
+                stopint()
+          }
+         }
+
+         let interval = setInterval(krotspam,400)
+         let interval2 = setInterval(timer,1000)
+
+         let stopint = function(){
+             clearInterval(interval2)
+             clearInterval(interval)
+             time = 0
+             if(score>=10){
+               document.querySelector('.win').style.display = 'block';
+             }
+         }   
+      }
+        
+
+
+        
+
+
+
+        /*
+         интервал(создатель кротов, 1000)
+
+        рандомайзер = {}
+
+        позиции нор топ = [500,600,700]
+        массив имена = [хороший, плохой]
+
+        функция создатель кротов() = { 
+            создается див
+            указываем параметры
+            указываем транзишн
+            бефор див
+            позиция топ не меняется 100 пикселей
+            позиция лефт меняется = позиции нор[рандомайзер(2)]
+            див.имя = массив имена[рандомайзер(1)]
+            if(див.имя==хороший){
+                цвет такой то 
+            } else {
+                цвет красный
+            }
+
+            функция показать = {
+                меняется топ дива 50пикселей
+
+            }
+
+            таймоут(функция показать, 1000)
+
+            функция скрыть = {
+                меняется топ дива 100пикселей
+            }
+
+            таймоут(функция скрыть, 2000)
+
+            нажатие = {
+                if(плохой){
+                    МИНУС ОЧКИ
+                } else {
+                    плюс очки
+                }
+            }
+        }
+        */
+     </script>
+</body>
+</html>
